@@ -401,7 +401,7 @@ class DailyGrapherCard extends LitElement {
           #ccc 98% 100%
         );
       }
-      .hand {
+   .hand {
         background-image: linear-gradient(
           to top,
           transparent 0 50%,
@@ -411,13 +411,13 @@ class DailyGrapherCard extends LitElement {
         position: absolute;
         width: 4px;
         z-index: 2;
-        height: 420px;
+        height: 100%;
       }
       .hand::before {
         content: "•";
         position: absolute;
         font-size: 36px;
-        top: 20px;
+        top: 5px;
         left: -100%;
         z-index: 2;
         color: var(--red);
