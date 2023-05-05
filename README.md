@@ -13,13 +13,16 @@ type: custom:dailygrapher-card
 entity: calendar.calendar_id
 hide_full_day_events: true
 ```
-## Options:
+### Options:
 entity: should be a valid and existing calendar entityid (Tested with google calendar).
 hide_full_day_events: (boolean) I recommend not showing full day events.
 
-## How it works
+### How it works
 It shows all upcoming events in the current 12 hours. 
 It's most likely buggy.
+
+## Troubleshooting
+The card uses the calendar events, If events don't show up, first refresh the calendars, and ensure you can see the event in the calendar.
 
 
 ---
