@@ -4,12 +4,6 @@ import {
   css,
 } from "https://unpkg.com/lit-element@2.0.1/lit-element.js?module";
 
-/**
- * TODO:
- * [] Add + button for calendar event
- * [] Add reload calendar button
- * [] Add duration of activity to sidelines
- */
 class DailyGrapherCard extends LitElement {
   static get properties() {
     return {
