@@ -1,5 +1,6 @@
 # DailyGrapher
 A Hacs Custom Card that shows a calendar on a clock
+
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration)
 
 
@@ -32,6 +33,6 @@ Custom Repositories
 1. Go to any of the sections (integrations, frontend, automation).
 1. Click on the 3 dots in the top right corner.
 1. Select "Custom repositories"
-1. Add the URL to the repository.
+1. Add the URL to the repository. (https://github.com/000miix/DailyGrapher)
 1. Select the correct category.
 1. Click the "ADD" button.
