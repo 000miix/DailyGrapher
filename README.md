@@ -24,11 +24,11 @@ It's most likely buggy.
 
 ---
 
-# Add a custom repo:
+# Add a custom repo to HACS:
 Custom Repositories
-Go to any of the sections (integrations, frontend, automation).
-Click on the 3 dots in the top right corner.
-Select "Custom repositories"
-Add the URL to the repository.
-Select the correct category.
-Click the "ADD" button.
+1. Go to any of the sections (integrations, frontend, automation).
+1. Click on the 3 dots in the top right corner.
+1. Select "Custom repositories"
+1. Add the URL to the repository.
+1. Select the correct category.
+1. Click the "ADD" button.
