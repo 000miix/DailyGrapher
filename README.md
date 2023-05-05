@@ -16,6 +16,7 @@ hide_full_day_events: true
 ```
 ### Options:
 entity: should be a valid and existing calendar entityid (Tested with google calendar).
+
 hide_full_day_events: (boolean) I recommend not showing full day events.
 
 
