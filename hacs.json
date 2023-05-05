@@ -1,4 +1,6 @@
 {
   "name":"DailyGrapher Card",
+  "content_in_root":true,
+  "filename":"dailygrapher-card.js",
   "render_readme": true
 }
