@@ -21,7 +21,6 @@ class DailyGrapherCard extends LitElement {
     tomorrow.setDate(today.getDate() + 1);
     today = today.toLocaleDateString("sv-SE"); // only need the day
     tomorrow = tomorrow.toLocaleDateString("sv-SE"); // only need the day
-    console.log(today, tomorrow);
     return { today, tomorrow };
   }
 
@@ -161,6 +160,7 @@ class DailyGrapherCard extends LitElement {
   }
 
   activities() {
+    if(!this.data.dailyActivities) return null;
     return this.data.dailyActivities.map((activity, index) => {
       const localTime = this.currentTime?.toLocaleTimeString("sv-SE");
       const { today } = this.date;
@@ -210,8 +210,8 @@ class DailyGrapherCard extends LitElement {
         isAm,
         endsOnFutureDate
       );
-      const isOdd = index %2 === 0
-      let style = { backgroundColor: isOdd?  "#0b4f70" : '#16597a', opacity: "0.8" };
+      const isEven = index % 2 === 0
+      let style = { backgroundColor: isEven?  "#0b4f70" : '#16597a', opacity: "0.8" };
       if (isActive) {
         style.backgroundColor = "#58afe4" ;
         style.opacity = "0.95";
@@ -467,7 +467,6 @@ class DailyGrapherCard extends LitElement {
 
   render() {
     if (!this.data) return "loading";
-    if (!this.data.dailyActivities) return "";
     return html`
       <ha-card>
         <div class="card-content">
