@@ -277,7 +277,7 @@ class DailyGrapherCard extends LitElement {
     });
   }
 
-  static get styles() {
+ static get styles() {
     return css`
       :host {
         --dark: #252526;
@@ -319,16 +319,16 @@ class DailyGrapherCard extends LitElement {
       .wrapper {
         display: block;
         position: absolute;
-        height: 100px;
-        width: 100px;
+        aspect-ratio: 1/1;
+        width: 80px;
         z-index: 3;
         border-radius: 50%;
         background-color: var(--lightblue);
         border: 5px solid var(--dark);
       }
       .outer-clock {
-        width: 380px;
-        height: 380px;
+        max-width: 380px;
+        aspect-ratio: 1/1;
         margin: 0 auto;
         background: var(--dark);
         position: relative;
@@ -356,8 +356,8 @@ class DailyGrapherCard extends LitElement {
       }
 
       .activity {
-        width: 380px;
-        height: 380px;
+        width: 100%;
+        height: 100%;
         color: white;
         display: flex;
         position: absolute;
@@ -464,7 +464,7 @@ class DailyGrapherCard extends LitElement {
       }
     `;
   }
-
+  
   render() {
     if (!this.data) return "loading";
     return html`
