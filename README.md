@@ -20,3 +20,15 @@ hide_full_day_events: (boolean) I recommend not showing full day events.
 ## How it works
 It shows all upcoming events in the current 12 hours. 
 It's most likely buggy.
+
+
+---
+
+# Add a custom repo:
+Custom Repositories
+Go to any of the sections (integrations, frontend, automation).
+Click on the 3 dots in the top right corner.
+Select "Custom repositories"
+Add the URL to the repository.
+Select the correct category.
+Click the "ADD" button.
