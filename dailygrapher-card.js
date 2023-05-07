@@ -109,7 +109,8 @@ class DailyGrapherCard extends LitElement {
     const hours = this.currentTime.getHours();
     const isAm = hours < 12;
 
-    let day = this.currentTime.getDay();
+    let dayOfWeek = this.currentTime.getDay();
+    let date = this.currentTime.getDate();
     let hh = hours % 12;
     hh === 0 ? (hh = 12) : hh;
 
@@ -121,7 +122,7 @@ class DailyGrapherCard extends LitElement {
         <div class="clock-content">
           <div class="ampm">${isAm ? "am" : "pm"}</div>
           <h2 class="time">${hh}:${mm}</h2>
-          <div class="day">${weekdays[day]} ${day}</div>
+          <div class="day">${weekdays[dayOfWeek]} ${date}</div>
         </div>
       </div>
     </div>`;
