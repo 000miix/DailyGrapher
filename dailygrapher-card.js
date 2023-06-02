@@ -25,8 +25,11 @@ class DailyGrapherCard extends LitElement {
   }
 
   setConfig(config) {
-    if (!config.entity) {
-      throw new Error("You need to define an entity");
+    if (!config.entity && !config.entities) {
+      throw new Error("You need to define an entity or entities");
+    }
+    if (config.entity && config.entities) {
+      throw new Error("You must only define either entity or entities, not both");
     }
     this.config = config;
     this.date = this.getDates();
@@ -51,11 +54,40 @@ class DailyGrapherCard extends LitElement {
   }
 
   async getCalendarEvents() {
-    const entityId = this.config.entity;
-    const activities = await this.hass.callApi(
-      "get",
-      `calendars/${entityId}?start=${this.date.today}&end=${this.date.tomorrow}`
-    );
+    const activities = [];
+    const failedActivities = [];
+    const calendarEntityPromises = [];
+    let calendarEntities = [];
+
+    if (this.config.entity) {
+      calendarEntities.push(this.config.entity);
+    } else {
+      calendarEntities = this.config.entities;
+    }
+
+    // retrieve activies in all calendars
+    calendarEntities.forEach(entity => {
+      const calendarEntity = (entity && entity.entity) || entity;
+      const url = `calendars/${calendarEntity}?start=${this.date.today}&end=${this.date.tomorrow}`;
+
+      // make all requests at once
+      calendarEntityPromises.push(
+          this.hass.callApi('get', url)
+              .then(events => {
+                  activities.push(...events);
+              })
+              .catch(error => {
+                  failedActivities.push({
+                      name: entity.name || calendarEntity,
+                      error
+                  });
+              })
+      );
+    });
+
+    // wait until all requests either succeed or fail
+    await Promise.all(calendarEntityPromises);
+
     let items = activities.map((activity) => {
       return {
         summary: activity.summary,
