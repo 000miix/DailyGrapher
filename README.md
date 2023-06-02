@@ -9,13 +9,26 @@ A Hacs Custom Card that shows a calendar on a clock
 ## Usage
 Add a custom card with the following settings:
 
+Single Calendar:
 ```yaml
 type: custom:dailygrapher-card
 entity: calendar.calendar_id
 hide_full_day_events: true
 ```
+
+Multiple Calendars:
+```yaml
+type: custom:dailygrapher-card
+entities: 
+    - calendar.calendar_id
+    - calendar.calendar_id_2
+hide_full_day_events: true
+```
+
 ### Options:
-entity: should be a valid and existing calendar entityid (Tested with google calendar).
+entity: should be a valid and existing calendar entity ID (Tested with google calendar).
+
+entities: should be a list of valid calendar entity IDs.
 
 hide_full_day_events: (boolean) I recommend not showing full day events.
 
