@@ -32,6 +32,7 @@ entities: should be a list of valid calendar entity IDs.
 
 hide_full_day_events: (boolean) I recommend not showing full day events.
 
+display_24_hour_time: (boolean) change the time in the centre to display in 24 hour notation.  
 
 ### How it works
 It shows all upcoming events in the current 12 hours. 
