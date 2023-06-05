@@ -19,7 +19,7 @@ hide_full_day_events: true
 Multiple Calendars:
 ```yaml
 type: custom:dailygrapher-card
-entities: 
+entity: 
     - calendar.calendar_id
     - calendar.calendar_id_2
 hide_full_day_events: true
@@ -27,8 +27,6 @@ hide_full_day_events: true
 
 ### Options:
 entity: should be a valid and existing calendar entity ID (Tested with google calendar).
-
-entities: should be a list of valid calendar entity IDs.
 
 hide_full_day_events: (boolean) I recommend not showing full day events.
 
