@@ -26,10 +26,7 @@ class DailyGrapherCard extends LitElement {
 
   setConfig(config) {
     if (!config.entity && !config.entities) {
-      throw new Error("You need to define an entity or entities");
-    }
-    if (config.entity && config.entities) {
-      throw new Error("You must only define either entity or entities, not both");
+      throw new Error("You need to define an entity");
     }
     this.config = config;
     this.date = this.getDates();
@@ -59,10 +56,10 @@ class DailyGrapherCard extends LitElement {
     const calendarEntityPromises = [];
     let calendarEntities = [];
 
-    if (this.config.entity) {
-      calendarEntities.push(this.config.entity);
+    if (Array.isArray(this.config.entity)) {
+      calendarEntities = this.config.entity;
     } else {
-      calendarEntities = this.config.entities;
+      calendarEntities.push(this.config.entity);
     }
 
     // retrieve activies in all calendars
