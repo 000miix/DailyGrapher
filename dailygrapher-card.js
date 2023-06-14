@@ -25,9 +25,9 @@ class DailyGrapherCard extends LitElement {
   }
 
   setConfig(config) {
+
     if (!config.entity && !config.entities) {
       throw new Error("You need to define an entity");
-    }
     this.config = config;
     this.date = this.getDates();
   }
@@ -140,8 +140,11 @@ class DailyGrapherCard extends LitElement {
 
     let dayOfWeek = this.currentTime.getDay();
     let date = this.currentTime.getDate();
-    let hh = hours % 12;
-    hh === 0 ? (hh = 12) : hh;
+    let hh = hours;
+    if (!this.config.display_24_hour_time) {
+      hh = hours % 12;
+      hh === 0 ? (hh = 12) : hh;
+    }
 
     let mm = this.currentTime.getMinutes();
     mm = mm < 10 ? "0" + mm : mm;
@@ -149,7 +152,7 @@ class DailyGrapherCard extends LitElement {
     return html` <div class="wrapper">
       <div class="clock">
         <div class="clock-content">
-          <div class="ampm">${isAm ? "am" : "pm"}</div>
+          <div class="ampm">${this.config.display_24_hour_time ? "" : isAm ? "am" : "pm"}</div>
           <h2 class="time">${hh}:${mm}</h2>
           <div class="day">${weekdays[dayOfWeek]} ${date}</div>
         </div>
@@ -468,6 +471,9 @@ class DailyGrapherCard extends LitElement {
       }
       .clock-content {
         text-align: center;
+      }
+      .ampm {
+        min-height: 1.5em;
       }
       .hour {
         font-size: 16px;
