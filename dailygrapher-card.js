@@ -28,6 +28,7 @@ class DailyGrapherCard extends LitElement {
 
     if (!config.entity && !config.entities) {
       throw new Error("You need to define an entity");
+    }
     this.config = config;
     this.date = this.getDates();
   }
